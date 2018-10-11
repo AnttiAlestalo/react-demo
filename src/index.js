@@ -1,12 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {I18nextProvider} from 'react-i18next';
+import i18next from 'i18next';
+import en from "./lang/en/translations.json";
+import fi from "./lang/fi/translations.json";
+import { BrowserRouter } from 'react-router-dom'
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './common.css';
+import SiteLayout from './componenets/SiteLayout/SiteLayout';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+i18next.init({
+    interpolation: { escapeValue: false },
+    lng: 'en',
+    resources: {
+        en: { lang: en },
+        fi: { lang: fi }
+    }
+});
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+    <I18nextProvider i18n={i18next}>
+        <BrowserRouter>
+            <SiteLayout />
+        </BrowserRouter>
+    </I18nextProvider>
+    ,document.getElementById('idRoot')
+);

@@ -1,0 +1,30 @@
+.cssSiteTitle {
+    padding-top: 10px;
+    font-size: 24px;
+    color: #fff;
+}
+.cssTopNav {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+}
+
+.cssTopNav a {
+    padding: 8px 30px;
+    border-right: solid 1px #FFF;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    text-decoration: none;
+    min-width: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+.cssTopNav a:first-child {
+    border-left: solid 1px #FFF;
+}
+
+.cssNav1A {
+    background-color: #121f6b;
+}

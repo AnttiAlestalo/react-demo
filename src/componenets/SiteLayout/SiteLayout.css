@@ -1,0 +1,32 @@
+.cssSiteHeaderBg {
+    overflow-y: scroll;
+    background-color: #1174ba;
+    height: 80px;
+}
+.cssSiteHeader {
+    margin: 0 auto;
+    min-width: 600px;
+    max-width: 1200px;
+    position: relative;
+    height: 80px;
+}
+.cssSiteBodyBg {
+    margin-top: 80px;
+    background-color: #e3e3e3;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    overflow-x: auto;
+    z-index: -1;
+}
+.cssSiteBody {
+    min-height: 100%;
+    min-width: 600px;
+    max-width: 1200px;
+    margin: 0 auto 0 auto;
+    padding: 0 20px;
+    background-color: white;
+}
