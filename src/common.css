@@ -7,8 +7,27 @@
     padding-bottom: 20px;
 }
 
-.cssChangeLang {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+.dropdown {
+    display: inline-block;
+}
+.dropdown__trigger {
+    display: block;
+}
+.dropdown__content {
+    display: none;
+    background-color: #fff;
+    border: solid 1px #ccc;
+    border-radius: 6px;
+}
+.dropdown--active .dropdown__content {
+    display: block;
+}
+.dropdown__content div {
+    padding: 4px 8px;
+    border-bottom: solid 1px #ccc;
+}
+.dropdown__content div:last-child {
+    border-bottom: 0;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }

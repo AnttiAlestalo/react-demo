@@ -1,16 +1,16 @@
-.cssSiteHeaderBg {
+.cssAppHeaderBg {
     overflow-y: scroll;
     background-color: #1174ba;
     height: 80px;
 }
-.cssSiteHeader {
+.cssAppHeader {
+    //position: relative;
     margin: 0 auto;
     min-width: 600px;
     max-width: 1200px;
-    position: relative;
     height: 80px;
 }
-.cssSiteBodyBg {
+.cssAppBodyBg {
     margin-top: 80px;
     background-color: #e3e3e3;
     position: absolute;
@@ -22,7 +22,7 @@
     overflow-x: auto;
     z-index: -1;
 }
-.cssSiteBody {
+.cssAppBody {
     min-height: 100%;
     min-width: 600px;
     max-width: 1200px;

@@ -1,7 +1,9 @@
 {
-  "SiteTitle": "AAD fi",
-  "Key2": {
-    "Text1": "Teksti 1",
-    "Text2": "Teksti 2"
-  }
+  "SiteTitle": "AA React Demo",
+  "TopNav": {
+    "Home": "Etusivu",
+    "Customers": "Asiakkaat",
+    "Reports": "Reportit"
+  },
+  "Settings": "Asetukset"
 }

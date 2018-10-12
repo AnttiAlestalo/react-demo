@@ -1,0 +1,53 @@
+#idDropdownSettings {
+    position: absolute;
+    right: 50px;
+    top: 20px;
+    text-align: right;
+}
+#idDropdownSettings .dropdown__content  {
+    text-align: left;
+}
+#idDropdownSettings .cssSelection:hover {
+    cursor: pointer;
+    background-color: #DBEAFF;
+}
+.cssAppHeaderContainer {
+    position: relative;
+    height: 100%;
+}
+.cssAppLogo {
+    height: 70px;
+    position: absolute;
+    top: 6px;
+    left: 4px;
+}
+.cssSiteTitle {
+    padding-top: 6px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+}
+.cssTopNav {
+    position: absolute;
+    left: 120px;
+    bottom: 0;
+    height: 30px;
+}
+.cssTopNav a {
+    padding: 8px 30px;
+    border-top: solid 1px #FFF;
+    border-right: solid 1px #FFF;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    text-decoration: none;
+    min-width: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+.cssTopNav a:first-child {
+    border-left: solid 1px #FFF;
+}
+.cssNav1A {
+    background-color: #121f6b;
+}

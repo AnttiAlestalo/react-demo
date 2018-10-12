@@ -7,7 +7,7 @@ import fi from "./lang/fi/translations.json";
 import { BrowserRouter } from 'react-router-dom'
 import './index.css';
 import './common.css';
-import SiteLayout from './componenets/SiteLayout/SiteLayout';
+import AppLayout from './componenets/AppLayout/AppLayout';
 
 i18next.init({
     interpolation: { escapeValue: false },
@@ -21,7 +21,7 @@ i18next.init({
 ReactDOM.render(
     <I18nextProvider i18n={i18next}>
         <BrowserRouter>
-            <SiteLayout />
+            <AppLayout />
         </BrowserRouter>
     </I18nextProvider>
     ,document.getElementById('idRoot')
