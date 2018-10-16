@@ -2,11 +2,16 @@
     font-size: 24px;
     padding: 10px 0 10px 0;
 }
-
 .cssPageBody {
     padding-bottom: 20px;
 }
-
+.cssFirstPara {
+    margin-top: 0;
+}
+/* Dropdown ###################################### */
+#idDropdownSettings {
+    cursor: pointer;
+}
 .dropdown {
     display: inline-block;
 }
@@ -23,7 +28,7 @@
     display: block;
 }
 .dropdown__content div {
-    padding: 4px 8px;
+    padding: 5px 10px;
     border-bottom: solid 1px #ccc;
 }
 .dropdown__content div:last-child {
@@ -31,3 +36,36 @@
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
 }
+/* Buttons ###################################### */
+.cssButDef, .cssButOK, .cssButDanger, .cssButWarn {
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 8px;
+    -webkit-appearance: none;
+}
+.cssButDef {
+    background-color: #3c89d6;
+    border: solid 1px #0074cc;
+}
+.cssButOK {
+    background-color: #449d44;
+    border: solid 1px #398439;
+}
+.cssButDanger {
+    background-color: #d9534f;
+    border: solid 1px #d43f3a;
+}
+.cssButWarn {
+    background-color: #f0ad4e;
+    border: solid 1px #eea236;
+}
+/* Fields ###################################### */
+input[type="text"], select, textarea {
+    -webkit-box-sizing: border-box;
+    border-radius: 3px;
+    padding: 4px 4px !important;
+    border: solid 1px #aaa;
+    font-size: 14px;
+}
+

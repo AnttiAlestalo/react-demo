@@ -1,9 +1,7 @@
 {
   "SiteTitle": "AA React Demo",
-  "TopNav": {
-    "Home": "Etusivu",
-    "Customers": "Asiakkaat",
-    "Reports": "Reportit"
-  },
+  "Home": "Etusivu",
+  "Customers": "Asiakkaat",
+  "Reports": "Reportit",
   "Settings": "Asetukset"
 }

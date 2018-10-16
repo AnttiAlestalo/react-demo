@@ -1,9 +1,7 @@
 {
   "SiteTitle": "AA React Demo",
-  "TopNav": {
-    "Home": "Home",
-    "Customers": "Customers",
-    "Reports": "Reports"
-  },
+  "Home": "Home",
+  "Customers": "Customers",
+  "Reports": "Reports",
   "Settings": "Settings"
 }

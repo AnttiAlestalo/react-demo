@@ -5,6 +5,8 @@ import i18next from 'i18next';
 import en from "./lang/en/translations.json";
 import fi from "./lang/fi/translations.json";
 import { BrowserRouter } from 'react-router-dom'
+import Popup from 'react-popup';
+import './popup.css';
 import './index.css';
 import './common.css';
 import AppLayout from './componenets/AppLayout/AppLayout';
@@ -26,3 +28,5 @@ ReactDOM.render(
     </I18nextProvider>
     ,document.getElementById('idRoot')
 );
+
+ReactDOM.render(<Popup />, document.getElementById('idDivPopup'));
