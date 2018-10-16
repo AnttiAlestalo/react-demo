@@ -3,6 +3,7 @@
     padding: 10px 0 10px 0;
 }
 .cssPageBody {
+    font-size: 16px;
     padding-bottom: 20px;
 }
 .cssFirstPara {
@@ -59,13 +60,74 @@
 .cssButWarn {
     background-color: #f0ad4e;
     border: solid 1px #eea236;
+    color: #313637;
+}
+.cssButSave {
+    min-width: 60px;
 }
 /* Fields ###################################### */
+.cssFormRow {
+    margin-bottom: 10px;
+}
+.cssFormRow > div:first-child {
+    padding-top: 3px;
+    vertical-align: top;
+}
+.cssFormRow > div {
+    display: inline-block;
+}
+fieldset {
+    border: solid 1px #1174ba;
+    border-radius: 6px;
+    padding: 12px 12px 10px 12px;
+}
 input[type="text"], select, textarea {
-    -webkit-box-sizing: border-box;
-    border-radius: 3px;
-    padding: 4px 4px !important;
+    border-radius: 4px;
+    padding: 5px 6px;
     border: solid 1px #aaa;
-    font-size: 14px;
+    font-size: 16px;
+    outline: none;
+}
+textarea {
+    resize: none;
+    height: 70px;
+}
+.react-datepicker-wrapper {
+    width: 120px;
+}
+.cssDivRadio {
+    border: solid 1px #fff;
+    padding: 4px;
+}
+.cssDivRadio label {
+    margin-right: 12px;
+}
+.cssSelectComponent__control {
+    border-color: #aaa !important;
+    border-radius: 4px;
+    min-height: 30px !important;
+    height: 30px !important;
+}
+i.cssRequired {
+    width: 8px;
+    height: 8px;
+    background: #d9534f;
+    display: inline-block;
+    margin: 8px 6px 0 0;
+    border-radius: 50%;
+    float: right;
+}
+div.cssInvalid {
+    border-radius: 4px;
+}
+.cssInvalid {
+    border: solid 1px #d43f3a !important;
+    background-color: rgba(236, 88, 64, 0.1);
+}
+.cssFormButtons {
+    text-align: right;
+}
+.cssFormButtons button {
+    margin-left: 12px;
 }
 

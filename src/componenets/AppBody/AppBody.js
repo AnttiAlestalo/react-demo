@@ -9,7 +9,7 @@ const AppBody = () => (
     <Switch>
         <Route exact path='/' component={Homepage}/>
         <Route exact path='/customers' component={Customers}/>
-        <Route exact path='/customer/0' component={CustomerEdit}/>
+        <Route exact path='/customers/0' component={CustomerEdit}/>
         <Route exact path='/reports' component={Reports}/>
     </Switch>
 );

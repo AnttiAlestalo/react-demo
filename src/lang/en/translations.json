@@ -2,6 +2,10 @@
   "SiteTitle": "AA React Demo",
   "Home": "Home",
   "Customers": "Customers",
+  "Customer": "Customer",
   "Reports": "Reports",
-  "Settings": "Settings"
+  "Settings": "Settings",
+  "FirstName": "First name",
+  "LastName": "Last name",
+  "Email": "Email address"
 }

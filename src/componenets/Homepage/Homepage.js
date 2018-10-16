@@ -15,8 +15,8 @@ const Homepage = () => (
                 AJAX: <a href="https://api.jquery.com/jQuery.ajax/" rel="noopener noreferrer" target="_blank">jQuery AJAX</a><br/>
                 Simple table with sorting and filtering: Own code<br/>
                 Form with all different field types, text, select, radio button, checkbox, textarea: Own code<br/>
-                Searchable select list: <br/>
-                Date picker: <br/>
+                Searchable select list: <a href="https://react-select.com/home" rel="noopener noreferrer" target="_blank">React Select</a><br/>
+                Date picker: <a href="https://www.npmjs.com/package/react-datepicker" rel="noopener noreferrer" target="_blank">React Date Picker</a><br/>
                 Form validation: Own code<br/>
                 Popup: <a href="http://minutemailer.github.io/react-popup/" rel="noopener noreferrer" target="_blank">React Popup</a><br/>
                 Bar chart: <br/>

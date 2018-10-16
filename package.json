@@ -10,12 +10,15 @@
     "i18next": "^11.9.1",
     "jquery": "^3.3.1",
     "logo.svg": "^1.0.1",
+    "moment": "^2.22.2",
     "react": "^16.5.2",
+    "react-datepicker": "^1.6.0",
     "react-dom": "^16.5.2",
     "react-i18next": "^8.0.7",
     "react-popup": "^0.9.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.4",
+    "react-select": "^2.1.0",
     "react-simple-dropdown": "^3.2.3"
   },
   "scripts": {

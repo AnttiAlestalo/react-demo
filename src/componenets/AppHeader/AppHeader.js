@@ -4,8 +4,8 @@ import { withNamespaces } from 'react-i18next';
 import { NavLink } from 'react-router-dom'
 import './AppHeader.css';
 import logo from './logo.svg';
-import { faUserCircle, faCog} from '@fortawesome/free-solid-svg-icons'
-import Dropdown, { DropdownTrigger, DropdownContent} from 'react-simple-dropdown';
+import { faCog } from '@fortawesome/free-solid-svg-icons'
+import Dropdown, { DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
 
 function AppHeader(props) {
     const t = props.t;

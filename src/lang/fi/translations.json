@@ -2,6 +2,10 @@
   "SiteTitle": "AA React Demo",
   "Home": "Etusivu",
   "Customers": "Asiakkaat",
+  "Customer": "Asiakas",
   "Reports": "Reportit",
-  "Settings": "Asetukset"
+  "Settings": "Asetukset",
+  "FirstName": "Etunimi",
+  "LastName": "Sukunimi",
+  "Email": "Sähköposti osoite"
 }

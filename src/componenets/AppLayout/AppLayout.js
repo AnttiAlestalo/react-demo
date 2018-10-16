@@ -13,11 +13,10 @@ class AppLayout extends Component {
                     </div>
                 </div>
                 <div className="cssAppBodyBg">
-                    <div className="cssAppBody" id="idPage">
+                    <div className="cssAppBody">
                         <AppBody/>
                     </div>
                 </div>
-
             </React.Fragment>
         )
     }

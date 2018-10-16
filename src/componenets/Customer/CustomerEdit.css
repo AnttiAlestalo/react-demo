@@ -1,0 +1,15 @@
+fieldset {
+    width: 556px;
+}
+#idFormPerson .cssFormRow > div:nth-child(1) {
+    width: 180px;
+}
+#idFormPerson .cssFormRow > div:nth-child(2) {
+    width: 350px;
+}
+#idFormPerson input[type="text"], #idFormPerson select, #idFormPerson textarea {
+    width: 100%;
+}
+.cssFieldNumber, #idFormPerson input[name="fPostCode"] {
+    width: 120px !important;
+}

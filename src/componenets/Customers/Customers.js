@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltDown, faLongArrowAltUp} from '@fortawesome/free-solid-svg-icons';
 import * as lib from "../../library";
 import './Customers.css';
-import {withRouter} from "react-router-dom";
-import CustomerEdit from '../Customer/CustomerEdit';
 
 class Customers extends React.Component {
 
@@ -77,7 +75,7 @@ class Customers extends React.Component {
             <table id="idParticipantsTable" className="cssTable">
                 <caption>
                     {t('Customers')}
-                    <input name="fFilterName" type="text" placeholder="Search customers" value={this.state.strSearch} onChange={this.jsSearchTable} className="cssFieldText" />
+                    <input name="fFilterName" type="text" placeholder="Search customers" value={this.state.strSearch} onChange={this.jsSearchTable} />
                     <button type="button" className="cssButDef" onClick={this.jsAddPerson}>Add new</button>
                 </caption>
                 <thead>
@@ -98,7 +96,6 @@ class Customers extends React.Component {
                     })}
                 </tbody>
             </table>
-            <CustomerEdit/>
         </React.Fragment>
     }
 }
