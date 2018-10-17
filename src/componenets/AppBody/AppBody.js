@@ -8,8 +8,9 @@ import Reports from '../Reports/Reports'
 const AppBody = () => (
     <Switch>
         <Route exact path='/' component={Homepage}/>
+        <Route exact path='/index.html' component={Homepage}/>
         <Route exact path='/customers' component={Customers}/>
-        <Route exact path='/customers/0' component={CustomerEdit}/>
+        <Route path='/customers/' component={CustomerEdit}/>
         <Route exact path='/reports' component={Reports}/>
     </Switch>
 );

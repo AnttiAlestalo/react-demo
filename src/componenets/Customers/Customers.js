@@ -11,7 +11,7 @@ class Customers extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            aHeaders: ["fName", "fEmail", "fPhone"],
+            aHeaders: ["fName", "fEmail", "fPhone", "fCustomerId"],
             strSearch: "",
             strSortBy: "fName",
             bDescending: false,
@@ -20,7 +20,7 @@ class Customers extends React.Component {
     }
 
     componentDidMount() {
-        let strUrl = window.location.href.indexOf("localhost") > 0 ? "http://localhost:3000/participants.json" : "http://www.aad.fi/aad/react1.nsf/vwPersons?OpenView&" + Date.now();
+        let strUrl = window.location.href.indexOf("localhost") > 0 ? "http://localhost:3000/participants.json" : "http://www.aad.fi/aad/react1.nsf/vwCustomers?OpenView&" + Date.now();
         $.getJSON(strUrl, function(aJson) {
             aJson.pop();
             this.setState({
@@ -54,6 +54,10 @@ class Customers extends React.Component {
         this.props.history.push("customers/0");
     };
 
+    jsEditCustomer(id) {
+        this.props.history.push("customers/" + id);
+    }
+
     render() {
         const t = this.props.t;
         let aCustomers = this.state.aCustomers.slice();
@@ -73,23 +77,24 @@ class Customers extends React.Component {
             <table id="idParticipantsTable" className="cssTable">
                 <caption>
                     {t('Customers')}
-                    <input name="fFilterName" type="text" placeholder="Search customers" value={this.state.strSearch} onChange={this.jsSearchTable} />
-                    <button type="button" className="cssButDef" onClick={this.jsAddPerson}>Add new</button>
+                    <input name="fFilterName" type="text" placeholder={t('Search')} value={this.state.strSearch} onChange={this.jsSearchTable} />
+                    <button type="button" className="cssButDef" onClick={this.jsAddPerson}>{t('AddNew')}</button>
                 </caption>
                 <thead>
                 <tr>
-                    <th onClick={() => this.jsSortBy("fName")}>Name {aIcons[0]}</th>
-                    <th onClick={() => this.jsSortBy("fEmail")}>E-mail address {aIcons[1]}</th>
-                    <th onClick={() => this.jsSortBy("fPhone")}>Phone number {aIcons[2]}</th>
-                    <th> </th>
+                    <th onClick={() => this.jsSortBy("fName")}>{t('Name')} {aIcons[0]}</th>
+                    <th onClick={() => this.jsSortBy("fEmail")}>{t('Email')} {aIcons[1]}</th>
+                    <th onClick={() => this.jsSortBy("fPhone")}>{t('PhoneNumber')} {aIcons[2]}</th>
+                    <th onClick={() => this.jsSortBy("fCustomerId")}>{t('CustomerId')} {aIcons[3]}</th>
                 </tr>
                 </thead>
                 <tbody>
                     {aCustomers.map(person => {
-                        return <tr key={person.id}>
+                        return <tr key={person.id} onClick={() => this.jsEditCustomer(person.id)}>
                             <td>{person.fName}</td>
                             <td>{person.fEmail}</td>
                             <td>{person.fPhone}</td>
+                            <td>{person.fCustomerId}</td>
                         </tr>
                     })}
                 </tbody>

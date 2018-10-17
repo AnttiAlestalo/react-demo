@@ -21,7 +21,7 @@ const Homepage = () => (
                 <tr><td>Date picker:</td><td><a href="https://www.npmjs.com/package/react-datepicker" rel="noopener noreferrer" target="_blank">React Date Picker</a></td></tr>
                 <tr><td>Form validation:</td><td>Own code</td></tr>
                 <tr><td>Popup:</td><td><a href="http://minutemailer.github.io/react-popup/" rel="noopener noreferrer" target="_blank">React Popup</a></td></tr>
-                <tr><td>Bar chart:</td><td></td></tr>
+                <tr><td>Charts:</td><td><a href="https://github.com/jerairrest/react-chartjs-2" rel="noopener noreferrer" target="_blank">react-chartjs-2</a></td></tr>
                 </tbody>
             </table>
         </div>

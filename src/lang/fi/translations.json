@@ -23,5 +23,8 @@
   "AdditionalInfo": "Lisätiedot",
   "Save": "Tallenna",
   "Cancel": "Takaisin",
-  "Delete": "Poista"
+  "Delete": "Poista",
+  "AddNew": "Lisää uusi",
+  "Search": "Etsi",
+  "Name": "Nimi"
 }

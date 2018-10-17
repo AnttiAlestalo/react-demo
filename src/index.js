@@ -23,7 +23,7 @@ i18next.init({
 
 ReactDOM.render(
     <I18nextProvider i18n={i18next}>
-        <BrowserRouter>
+        <BrowserRouter basename={(window.location.href.indexOf("localhost") > 0 ? "" : "/aad/react")}>
             <AppLayout />
         </BrowserRouter>
     </I18nextProvider>

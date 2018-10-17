@@ -25,7 +25,7 @@ function AppHeader(props) {
             <div className="cssSiteTitle">{t('SiteTitle')}</div>
 
             <div className="cssTopNav">
-                <NavLink exact to='/' rel="noopener noreferrer" activeClassName="cssNav1A">{t('Home')}</NavLink>
+                <NavLink exact to='/index.html' rel="noopener noreferrer" activeClassName="cssNav1A">{t('Home')}</NavLink>
                 <NavLink strict to='/customers' rel="noopener noreferrer" activeClassName="cssNav1A">{t('Customers')}</NavLink>
                 <NavLink exact to='/reports' rel="noopener noreferrer" activeClassName="cssNav1A">{t('Reports')}</NavLink>
             </div>

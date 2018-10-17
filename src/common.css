@@ -83,7 +83,7 @@ fieldset {
 }
 input[type="text"], select, textarea {
     border-radius: 4px;
-    padding: 5px 6px;
+    padding: 5px 8px;
     border: solid 1px #aaa;
     font-size: 16px;
     outline: none;
@@ -107,6 +107,9 @@ textarea {
     border-radius: 4px;
     min-height: 30px !important;
     height: 30px !important;
+}
+.cssSelectComponent__single-value {
+    margin-left: 0 !important;
 }
 i.cssRequired {
     width: 8px;
