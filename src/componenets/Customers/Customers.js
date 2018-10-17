@@ -13,7 +13,6 @@ class Customers extends React.Component {
         this.state = {
             aHeaders: ["fName", "fEmail", "fPhone"],
             strSearch: "",
-            strEditPersonId: null,
             strSortBy: "fName",
             bDescending: false,
             aCustomers: []
@@ -57,7 +56,6 @@ class Customers extends React.Component {
 
     render() {
         const t = this.props.t;
-        let iEditPersonId = this.state.strEditPersonId === null ? 0 : this.state.strEditPersonId;
         let aCustomers = this.state.aCustomers.slice();
         if (this.state.strSearch !== "") {
             aCustomers = aCustomers.filter(person => { return (

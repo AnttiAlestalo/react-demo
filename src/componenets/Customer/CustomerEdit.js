@@ -4,56 +4,58 @@ import { withNamespaces } from 'react-i18next';
 import * as lib from "../../library";
 import Popup from "react-popup/dist/index";
 import Select from 'react-select';
-
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
-
 import './CustomerEdit.css';
 
-const jsonCountries = [
-    { value:'Finland', label:'Finland' },
-    { value:'Sweden', label:'Sweden' }
-];
+const aAllCountries = ["Afghanistan","Albania","Algeria","Amer.Virgin Is.","Andorra","Angola","Anguilla","Antarctica","Antigua/Barbads","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia-Herz.","Botswana","Bouvet Island","Brazil","Brit.Ind.Oc.Ter","Brit.Virgin Is.","Brunei Dar-es-S","Bulgaria","Burkina-Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Afr.Rep","Chad","Chile","China","Christmas Islnd","Coconut Islands","Colombia","Comoros","Congo","Cook Islands","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Dem.Reb. Congo","Denmark","Djibouti","Dominica","Dominican Rep.","Dutch Antilles","East Timor","Ecuador","Egypt","El Salvador","Equatorial Guin","Eritrea","Estonia","Ethiopia","Faeroe","Falkland Islnds","Fiji","Finland","France","Frenc.Polynesia","French Guayana","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guadeloupe","Guam","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Heard/McDon.Isl","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Ivory Coast","Jamaica","Japan","Jersey C.I.","Jordan","Kazakhstan","Kenya","Kirghizstan","Kiribati","Kuwait","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islnds","Martinique","Mauritania","Mauritius","Mayotte","Mexico","Micronesia","Minor Outl.Isl.","Moldavia","Monaco","Mongolia","Montserrat","Morocco","Mozambique","Myanmar","N.Mariana Islnd","Namibia","Nauru","Nepal","Netherlands","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Niue Islands","Norfolk Island","North Korea","Norway","Oman","Pakistan","Palau","Panama","Pap. New Guinea","Paraguay","Peru","Philippines","Pitcairn Islnds","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","stateless","S.Tome,Principe","Samoa,American","San Marino","Saudi Arabia","Senegal","Serbia/Monteneg","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","Spain","Sri Lanka","St Kitts&amp;Nevis","St. Helena","St. Lucia","St. Vincent","St.Pier,Miquel.","Sth Sandwich Is","Sudan","Suriname","Svalbard","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikstan","Tanzania","Thailand","Togo","Tokelau Islands","Tonga","Trinidad,Tobago","Tunisia","Turkey","Turkmenistan","Turksh Caicosin","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay ","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Wallis,Futuna","Western Samoa","Yemen","Yugoslavia","Zambia","Zimbabwe"];
+const jsonCountries = aAllCountries.map(strCountry => {
+    return { value:strCountry, label:strCountry }
+});
 
 class CustomerEdit extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             jsonSelectedCountry: null,
-            customer: {
+            jsonCustomer: {
                 "id":"0",
                 "fStatus": "",
                 "fFirstName":"",
                 "fLastName":"",
+                "fCompany": "",
+                "fStreetAddress": "",
+                "fPostCode": "",
+                "fCity": "",
                 "fCountry": "",
                 "fEmail": "",
                 "fPhone": "",
-                "fContactDate": null},
+                "fContactDate": null,
+                "fCustomerId": ""
+            },
             aInvalidFields: []
-        }
+        };
     }
 
     componentDidMount() {
-        moment.updateLocale('en', {
-            week: { dow:1 },
-        })
+        moment.updateLocale('en', { week: { dow:1 } });
     }
 
     jsDateChange = (oDate) => {
-        let jsonCustomer = JSON.parse(JSON.stringify(this.state.customer));
+        let jsonCustomer = this.state.jsonCustomer;
         jsonCustomer.fContactDate = oDate;
         this.setState({
-            customer: jsonCustomer,
+            jsonCustomer: jsonCustomer,
         });
     };
 
     jsSelectChange = (jsonSelected) => {
-        let jsonCustomer = JSON.parse(JSON.stringify(this.state.customer));
+        let jsonCustomer = this.state.jsonCustomer;
         jsonCustomer.fCountry = (jsonSelected === null ? "" : jsonSelected.value);
         this.setState({
             jsonSelectedCountry: jsonSelected,
-            customer: jsonCustomer
+            jsonCustomer: jsonCustomer
         })
     };
 
@@ -66,17 +68,17 @@ class CustomerEdit extends React.Component {
         } else {
             aInvalidFields = lib.jsRemoveFromArray(aInvalidFields, strFieldName);
         }
-        let jsonCustomer = JSON.parse(JSON.stringify(this.state.customer));
+        let jsonCustomer = this.state.jsonCustomer;
         jsonCustomer[strFieldName] = strFieldValue;
         this.setState({
-            customer: jsonCustomer,
+            jsonCustomer: jsonCustomer,
             aInvalidFields: aInvalidFields
         })
     };
 
     jsValidateCustomer = () => {
         let aInvalidFields = [];
-        let jsonCustomer = this.state.customer;
+        let jsonCustomer = this.state.jsonCustomer;
         if (lib.jsTrim(jsonCustomer.fStatus) === "") aInvalidFields.push("fStatus");
         if (lib.jsTrim(jsonCustomer.fFirstName) === "") aInvalidFields.push("fFirstName");
         if (lib.jsTrim(jsonCustomer.fLastName) === "") aInvalidFields.push("fLastName");
@@ -99,16 +101,18 @@ class CustomerEdit extends React.Component {
             });
             return
         }
-        this.props.jsSaveCustomer(jsonCustomer)
+        this.jsSaveCustomer()
     };
 
     jsCloseCustomer = () => {
         this.props.history.push("/customers");
     };
 
-    jsSaveCustomer = (jsonPerson) => {
-        let strUrl = jsonPerson.id === "0" ? "http://www.aad.fi/aad/react1.nsf/frmPerson?CreateDocument" : "http://www.aad.fi/aad/react1.nsf/0/" + jsonPerson.id + "?SaveDocument";
-        let strJson = $.param(jsonPerson);
+    jsSaveCustomer = () => {
+        let jsonCustomer = this.state.jsonCustomer;
+        jsonCustomer.fContactDate = (jsonCustomer.fContactDate === null ? "" : jsonCustomer.fContactDate.format("YYYY-MM-DD"));
+        let strUrl = jsonCustomer.id === "0" ? "http://www.aad.fi/aad/react1.nsf/frmCustomer?CreateDocument" : "http://www.aad.fi/aad/react1.nsf/0/" + jsonCustomer.id + "?SaveDocument";
+        let strJson = $.param(jsonCustomer);
         $.ajax({
             type: "POST",
             url: strUrl,
@@ -118,17 +122,7 @@ class CustomerEdit extends React.Component {
                     alert("AJAX Error: " + strResponse);
                     return;
                 }
-                let aParticipants = this.state.aParticipants.slice();
-                let index = aParticipants.findIndex( item => item.id === jsonPerson.id );
-                aParticipants[index] = jsonPerson;
-                if (jsonPerson.id === "0") {
-                    aParticipants[index].id = lib.jsLeft(lib.jsStrRight(strResponse, "^OK^"), 32);
-                }
-                aParticipants.sort( lib.jsSort("fName", false, false) );
-                this.setState({
-                    aParticipants: aParticipants,
-                    strEditPersonId: null
-                })
+                this.props.history.push("/customers");
             }.bind(this),
             error: function (xhr){
                 alert("AJAX Error: " + xhr.status + " " + xhr.statusText)
@@ -138,7 +132,7 @@ class CustomerEdit extends React.Component {
 
     render() {
         const t = this.props.t;
-        let jsonCustomer = this.state.customer;
+        let jsonCustomer = this.state.jsonCustomer;
         let aInvalidFields = this.state.aInvalidFields;
         return (
             <React.Fragment>
@@ -149,11 +143,11 @@ class CustomerEdit extends React.Component {
                     <fieldset>
                         <form className="cssForm" id="idFormPerson">
                             <div className="cssFormRow">
-                                <div>Status: <i className="cssRequired"> </i></div>
+                                <div>{t('Status')}: <i className="cssRequired"> </i></div>
                                 <div onChange={event => this.jsInputChange(event)} className={"cssDivRadio" + (lib.jsInArray(aInvalidFields, "fStatus") ? " cssInvalid" : "")}>
-                                    <label><input type="radio" value="New" name="fStatus"/>New</label>
-                                    <label><input type="radio" value="Current" name="fStatus"/>Current</label>
-                                    <label><input type="radio" value="Old" name="fStatus"/>Old</label>
+                                    <label><input type="radio" value="New" name="fStatus"/>{t('New')}</label>
+                                    <label><input type="radio" value="Current" name="fStatus"/>{t('Current')}</label>
+                                    <label><input type="radio" value="Old" name="fStatus"/>{t('Old')}</label>
                                 </div>
                             </div>
                             <div className="cssFormRow">
@@ -177,31 +171,31 @@ class CustomerEdit extends React.Component {
                                 </div>
                             </div>
                             <div className="cssFormRow">
-                                <div>Company: </div>
+                                <div>{t('Company')}:</div>
                                 <div>
                                     <input name="fCompany" type="text" value={jsonCustomer.fCompany} onChange={this.jsInputChange} />
                                 </div>
                             </div>
                             <div className="cssFormRow">
-                                <div>Street address:</div>
+                                <div>{t('StreetAddress')}:</div>
                                 <div>
                                     <input name="fStreetAddress" type="text" value={jsonCustomer.fStreetAddress} onChange={this.jsInputChange} />
                                 </div>
                             </div>
                             <div className="cssFormRow">
-                                <div>Post code:</div>
+                                <div>{t('PostCode')}:</div>
                                 <div>
                                     <input name="fPostCode" type="text" value={jsonCustomer.fPostCode} onChange={this.jsInputChange} />
                                 </div>
                             </div>
                             <div className="cssFormRow">
-                                <div>City:</div>
+                                <div>{t('City')}:</div>
                                 <div>
                                     <input name="fCity" type="text" value={jsonCustomer.fCity} onChange={this.jsInputChange} />
                                 </div>
                             </div>
                             <div className="cssFormRow">
-                                <div>Country:</div>
+                                <div>{t('Country')}:</div>
                                 <div>
                                     <Select name="fCountry"
                                         value={this.state.jsonSelectedCountry}
@@ -226,14 +220,14 @@ class CustomerEdit extends React.Component {
                                 </div>
                             </div>
                             <div className="cssFormRow">
-                                <div>Phone number:</div>
+                                <div>{t('PhoneNumber')}:</div>
                                 <div>
                                     <input name="fPhone" type="text" value={jsonCustomer.fPhone} onChange={this.jsInputChange} />
                                 </div>
                             </div>
 
                             <div className="cssFormRow">
-                                <div>Last contacted:</div>
+                                <div>{t('LastContacted')}:</div>
                                 <div>
                                     <DatePicker
                                         selected={jsonCustomer.fContactDate}
@@ -241,12 +235,11 @@ class CustomerEdit extends React.Component {
                                         dateFormat="D.M.YYYY"
                                         todayButton={"Today"}
                                         isClearable={true}
-                                        locale="en-gb"
                                     />
                                 </div>
                             </div>
                             <div className="cssFormRow">
-                                <div>Customer id:</div>
+                                <div>{t('CustomerId')}:</div>
                                 <div>
                                     <input name="fCustomerId" type="text"
                                            value={jsonCustomer.fCustomerId}
@@ -256,15 +249,15 @@ class CustomerEdit extends React.Component {
                                 </div>
                             </div>
                             <div className="cssFormRow">
-                                <div>Additional info:</div>
+                                <div>{t('AdditionalInfo')}:</div>
                                 <div>
                                     <textarea  name="fAddInfo" value={jsonCustomer.fAddInfo} onChange={this.jsInputChange} />
                                 </div>
                             </div>
                             <div className="cssFormButtons">
                                 <span>
-                                    <button type="button" onClick={this.jsValidateCustomer} className="cssButOK cssButSave">Save</button>
-                                    <button type="button" onClick={this.jsCloseCustomer} className="cssButWarn">Cancel</button>
+                                    <button type="button" onClick={this.jsValidateCustomer} className="cssButOK cssButSave">{t('Save')}</button>
+                                    <button type="button" onClick={this.jsCloseCustomer} className="cssButWarn">{t('Cancel')}</button>
                                 </span>
                             </div>
                         </form>

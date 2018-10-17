@@ -9,6 +9,7 @@ import Popup from 'react-popup';
 import './popup.css';
 import './index.css';
 import './common.css';
+import './tables.css';
 import AppLayout from './componenets/AppLayout/AppLayout';
 
 i18next.init({

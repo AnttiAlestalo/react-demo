@@ -1,0 +1,4 @@
+#idHomepageTable {width: 500px}
+#idHomepageTable td:nth-child(1) {width: 280px}
+#idHomepageTable td:nth-child(2) {width: 200px}
+#idHomepageTable tr:first-child td {border-top: solid 1px #ccc}
