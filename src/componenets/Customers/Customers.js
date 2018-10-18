@@ -11,7 +11,7 @@ class Customers extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            aHeaders: ["fName", "fEmail", "fPhone", "fCustomerId"],
+            aHeaders: ["fName", "fEmail", "fPhone", "fCountry"],
             strSearch: "",
             strSortBy: "fName",
             bDescending: false,
@@ -20,7 +20,7 @@ class Customers extends React.Component {
     }
 
     componentDidMount() {
-        let strUrl = window.location.href.indexOf("localhost") > 0 ? "http://localhost:3000/participants.json" : "http://www.aad.fi/aad/react1.nsf/vwCustomers?OpenView&" + Date.now();
+        let strUrl = window.location.href.indexOf("localhost") > 0 ? "http://localhost:3000/customers.json" : "http://www.aad.fi/aad/react1.nsf/vwCustomers?OpenView&" + Date.now();
         $.getJSON(strUrl, function(aJson) {
             aJson.pop();
             this.setState({
@@ -50,10 +50,6 @@ class Customers extends React.Component {
         })
     };
 
-    jsAddPerson = () => {
-        this.props.history.push("customers/0");
-    };
-
     jsEditCustomer(id) {
         this.props.history.push("customers/" + id);
     }
@@ -62,10 +58,11 @@ class Customers extends React.Component {
         const t = this.props.t;
         let aCustomers = this.state.aCustomers.slice();
         if (this.state.strSearch !== "") {
-            aCustomers = aCustomers.filter(person => { return (
-                (person.fName.toLowerCase().indexOf(this.state.strSearch) > -1) ||
-                (person.fEmail.toLowerCase().indexOf(this.state.strSearch) > -1) ||
-                (person.fPhone.toLowerCase().indexOf(this.state.strSearch) > -1)
+            aCustomers = aCustomers.filter(customer => { return (
+                (customer.fName.toLowerCase().indexOf(this.state.strSearch) > -1) ||
+                (customer.fEmail.toLowerCase().indexOf(this.state.strSearch) > -1) ||
+                (customer.fPhone.toLowerCase().indexOf(this.state.strSearch) > -1) ||
+                (customer.fCountry.toLowerCase().indexOf(this.state.strSearch) > -1)
             )});
         }
 
@@ -74,27 +71,27 @@ class Customers extends React.Component {
         });
 
         return <React.Fragment>
-            <table id="idParticipantsTable" className="cssTable">
+            <table id="idCustomersTable" className="cssTable">
                 <caption>
-                    {t('Customers')}
+                    {t('Customers')} <span className="cssSmall">({this.state.aCustomers.length})</span>
                     <input name="fFilterName" type="text" placeholder={t('Search')} value={this.state.strSearch} onChange={this.jsSearchTable} />
-                    <button type="button" className="cssButDef" onClick={this.jsAddPerson}>{t('AddNew')}</button>
+                    <button type="button" className="cssButDef" onClick={() => this.jsEditCustomer("0")}>{t('AddNew')}</button>
                 </caption>
                 <thead>
                 <tr>
                     <th onClick={() => this.jsSortBy("fName")}>{t('Name')} {aIcons[0]}</th>
                     <th onClick={() => this.jsSortBy("fEmail")}>{t('Email')} {aIcons[1]}</th>
                     <th onClick={() => this.jsSortBy("fPhone")}>{t('PhoneNumber')} {aIcons[2]}</th>
-                    <th onClick={() => this.jsSortBy("fCustomerId")}>{t('CustomerId')} {aIcons[3]}</th>
+                    <th onClick={() => this.jsSortBy("fCountry")}>{t('Country')} {aIcons[3]}</th>
                 </tr>
                 </thead>
                 <tbody>
-                    {aCustomers.map(person => {
-                        return <tr key={person.id} onClick={() => this.jsEditCustomer(person.id)}>
-                            <td>{person.fName}</td>
-                            <td>{person.fEmail}</td>
-                            <td>{person.fPhone}</td>
-                            <td>{person.fCustomerId}</td>
+                    {aCustomers.map(customer => {
+                        return <tr key={customer.id} onClick={() => this.jsEditCustomer(customer.id)}>
+                            <td>{customer.fName}</td>
+                            <td>{customer.fEmail}</td>
+                            <td>{customer.fPhone}</td>
+                            <td>{customer.fCountry}</td>
                         </tr>
                     })}
                 </tbody>

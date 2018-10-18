@@ -103,10 +103,10 @@ class CustomerEdit extends React.Component {
                 aInvalidFields: aInvalidFields
             });
             let strErrorMsg = "";
-            if (aInvalidFields.indexOf("fName") > -1 || jsonCustomer.fEmail === "" || aInvalidFields.indexOf("fPhone") > -1) {
+            if (aInvalidFields.indexOf("fStatus") > -1 || aInvalidFields.indexOf("fName") > -1 || jsonCustomer.fEmail === "" || aInvalidFields.indexOf("fPhone") > -1) {
                 strErrorMsg = "Please fill required fields.";
             }
-            if (jsonCustomer.fEmail !== "") {
+            if (aInvalidFields.indexOf("fEmail") > -1) {
                 strErrorMsg += " E-mail address is not valid.";
             }
             Popup.create({
@@ -143,6 +143,14 @@ class CustomerEdit extends React.Component {
                 alert("AJAX Error: " + xhr.status + " " + xhr.statusText)
             }
         })
+    };
+
+    jsDelete = () => {
+        if (!window.confirm('Are you sure you want to delete this customer?')) return;
+        let strUrl = "http://www.aad.fi/aad/react1.nsf/vwCustomers/" + this.state.jsonCustomer.id + "?DeleteDocument";
+        $.get(strUrl, function() {
+            this.props.history.push("/customers");
+        }.bind(this))
     };
 
     render() {
@@ -272,6 +280,7 @@ class CustomerEdit extends React.Component {
                             <div className="cssFormButtons">
                                 <span>
                                     <button type="button" onClick={this.jsValidateCustomer} className="cssButOK cssButSave">{t('Save')}</button>
+                                    {jsonCustomer.id === "0" ? "" : <button type="button" onClick={this.jsDelete} className="cssButDanger">{t('Delete')}</button>}
                                     <button type="button" onClick={this.jsCloseCustomer} className="cssButWarn">{t('Cancel')}</button>
                                 </span>
                             </div>

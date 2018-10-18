@@ -1,13 +1,17 @@
-#idParticipantsTable tr {cursor: pointer}
-#idParticipantsTable {
+#idCustomersTable tr {cursor: pointer}
+#idCustomersTable {
     width: 100%;
     min-width: 520px;
 }
+#idCustomersTable caption .cssSmall {
+    font-size: 16px;
+    padding-left: 20px;
+}
 
-#ZZZidParticipantsTable {width: 912px}
-#ZZZidParticipantsTable th:nth-child(1), #ZZZidParticipantsTable td:nth-child(1) {width: 230px; padding-left: 12px}
-#ZZZidParticipantsTable th:nth-child(2), #ZZZidParticipantsTable td:nth-child(2) {width: 270px}
-#ZZZidParticipantsTable th:nth-child(3), #ZZZidParticipantsTable td:nth-child(3) {width: 210px}
-#ZZZidParticipantsTable th:nth-child(4), #ZZZidParticipantsTable td:nth-child(4) {width: 152px}
+#ZZZidCustomersTable {width: 912px}
+#ZZZidCustomersTable th:nth-child(1), #ZZZidCustomersTable td:nth-child(1) {width: 230px; padding-left: 12px}
+#ZZZidCustomersTable th:nth-child(2), #ZZZidCustomersTable td:nth-child(2) {width: 270px}
+#ZZZidCustomersTable th:nth-child(3), #ZZZidCustomersTable td:nth-child(3) {width: 210px}
+#ZZZidCustomersTable th:nth-child(4), #ZZZidCustomersTable td:nth-child(4) {width: 152px}
 
 
