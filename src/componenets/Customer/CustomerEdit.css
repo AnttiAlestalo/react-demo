@@ -1,5 +1,15 @@
+.cssPageHeader, .cssFormButtons {
+    width: 556px;
+}
+.cssPageHeader span {
+    float: right;
+}
+.cssPageHeader span button {
+    margin-left: 12px;
+}
 fieldset {
     width: 556px;
+    margin-bottom: 10px;
 }
 #idFormPerson .cssFormRow > div:nth-child(1) {
     width: 180px;

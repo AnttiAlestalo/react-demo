@@ -50,8 +50,12 @@ class Customers extends React.Component {
         })
     };
 
+    jsReadCustomer(id) {
+        this.props.history.push("customers/read/" + id);
+    }
+
     jsEditCustomer(id) {
-        this.props.history.push("customers/" + id);
+        this.props.history.push("customers/edit/" + id);
     }
 
     render() {
@@ -87,7 +91,7 @@ class Customers extends React.Component {
                 </thead>
                 <tbody>
                     {aCustomers.map(customer => {
-                        return <tr key={customer.id} onClick={() => this.jsEditCustomer(customer.id)}>
+                        return <tr key={customer.id} onClick={() => this.jsReadCustomer(customer.id)}>
                             <td>{customer.fName}</td>
                             <td>{customer.fEmail}</td>
                             <td>{customer.fPhone}</td>

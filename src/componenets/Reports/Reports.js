@@ -2,6 +2,7 @@ import React from 'react'
 import {Bar, Pie} from 'react-chartjs-2';
 import './Reports.css';
 import $ from "jquery";
+import { withNamespaces } from 'react-i18next';
 
 let jsonDataBar = {
     labels: ['Finland', 'United States', 'Germany', 'Spain', 'France', 'Poland', 'Italy'],
@@ -74,8 +75,9 @@ class Reports extends React.Component {
     }
 
     render() {
+        const t = this.props.t;
         return <React.Fragment>
-            <div className="cssPageHeader">Customers by country</div>
+            <div className="cssPageHeader">{t('CustomersByCountry')}</div>
             <div className="cssPageBody">
                 <div>
                     <Bar
@@ -96,7 +98,7 @@ class Reports extends React.Component {
                     />
                 </div>
                 <br/><br/><br/>
-                <div className="cssPageHeader">Customers by status</div>
+                <div className="cssPageHeader">{t('CustomersByStatus')}</div>
                 <div className="cssPieContainer">
                     <Pie data={this.state.jsonDataPie} />
                 </div>
@@ -105,4 +107,4 @@ class Reports extends React.Component {
     }
 }
 
-export default Reports
+export default withNamespaces('lang')(Reports)

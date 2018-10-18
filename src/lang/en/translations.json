@@ -21,10 +21,13 @@
   "LastContacted": "Last contacted",
   "CustomerId": "Customer id",
   "AdditionalInfo": "Additional info",
+  "Edit": "Edit",
   "Save": "Save",
   "Cancel": "Cancel",
   "Delete": "Delete",
   "AddNew": "Add new",
   "Search": "Search",
-  "Name": "Name"
+  "Name": "Name",
+  "CustomersByCountry": "Customers by country",
+  "CustomersByStatus": "Customers by status"
 }

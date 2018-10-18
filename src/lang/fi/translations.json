@@ -21,10 +21,13 @@
   "LastContacted": "Edellinen yhteydenotto",
   "CustomerId": "Asiakasnumero",
   "AdditionalInfo": "Lisätiedot",
+  "Edit": "Muokkaa",
   "Save": "Tallenna",
   "Cancel": "Takaisin",
   "Delete": "Poista",
   "AddNew": "Lisää uusi",
   "Search": "Etsi",
-  "Name": "Nimi"
+  "Name": "Nimi",
+  "CustomersByCountry": "Asiakkaat maittain",
+  "CustomersByStatus": "Asiakaiden tilat"
 }

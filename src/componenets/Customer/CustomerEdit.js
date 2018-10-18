@@ -161,6 +161,11 @@ class CustomerEdit extends React.Component {
             <React.Fragment>
                 <div className="cssPageHeader">
                     {t('Customer')}
+                    <span>
+                        <button type="button" onClick={this.jsValidateCustomer} className="cssButOK cssButSave">{t('Save')}</button>
+                        {jsonCustomer.id === "0" ? "" : <button type="button" onClick={this.jsDelete} className="cssButDanger">{t('Delete')}</button>}
+                        <button type="button" onClick={this.jsCloseCustomer} className="cssButWarn">{t('Cancel')}</button>
+                    </span>
                 </div>
                 <div className="cssPageBody">
                     <fieldset>
@@ -277,15 +282,15 @@ class CustomerEdit extends React.Component {
                                     <textarea  name="fAddInfo" value={jsonCustomer.fAddInfo} onChange={this.jsInputChange} />
                                 </div>
                             </div>
-                            <div className="cssFormButtons">
-                                <span>
-                                    <button type="button" onClick={this.jsValidateCustomer} className="cssButOK cssButSave">{t('Save')}</button>
-                                    {jsonCustomer.id === "0" ? "" : <button type="button" onClick={this.jsDelete} className="cssButDanger">{t('Delete')}</button>}
-                                    <button type="button" onClick={this.jsCloseCustomer} className="cssButWarn">{t('Cancel')}</button>
-                                </span>
-                            </div>
                         </form>
                     </fieldset>
+                    <div className="cssFormButtons">
+                        <span>
+                            <button type="button" onClick={this.jsValidateCustomer} className="cssButOK cssButSave">{t('Save')}</button>
+                            {jsonCustomer.id === "0" ? "" : <button type="button" onClick={this.jsDelete} className="cssButDanger">{t('Delete')}</button>}
+                            <button type="button" onClick={this.jsCloseCustomer} className="cssButWarn">{t('Cancel')}</button>
+                        </span>
+                    </div>
                 </div>
             </React.Fragment>
         )

@@ -5,6 +5,11 @@
     top: 20px;
     text-align: right;
 }
+@media only screen and (max-width: 800px) {
+    #idDropdownSettings {
+        right: 20px;
+    }
+}
 #idDropdownSettings .dropdown__content  {
     text-align: left;
 }
