@@ -120,7 +120,11 @@ class CustomerEdit extends React.Component {
     };
 
     jsCloseCustomer = () => {
-        this.props.history.push("/customers");
+        if (this.state.jsonCustomer.id === "0") {
+            this.props.history.push("/customers");
+        } else {
+            this.props.history.push("/customers/read/" + this.state.jsonCustomer.id);
+        }
     };
 
     jsSaveCustomer = () => {
@@ -137,7 +141,7 @@ class CustomerEdit extends React.Component {
                     alert("AJAX Error: " + strResponse);
                     return;
                 }
-                this.props.history.push("/customers");
+                this.props.history.push("/customers/read/" + jsonCustomer.id);
             }.bind(this),
             error: function (xhr){
                 alert("AJAX Error: " + xhr.status + " " + xhr.statusText)
