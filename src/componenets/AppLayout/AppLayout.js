@@ -12,10 +12,8 @@ class AppLayout extends Component {
                         <AppHeader/>
                     </div>
                 </div>
-                <div className="cssAppBodyBg">
-                    <div className="cssAppBody">
-                        <AppBody/>
-                    </div>
+                <div className="cssAppBody">
+                    <AppBody/>
                 </div>
             </React.Fragment>
         )

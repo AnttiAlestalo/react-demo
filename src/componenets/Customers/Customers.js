@@ -75,31 +75,33 @@ class Customers extends React.Component {
         });
 
         return <React.Fragment>
-            <table id="idCustomersTable" className="cssTable">
-                <caption>
-                    {t('Customers')} <span className="cssSmall">({this.state.aCustomers.length})</span>
-                    <input name="fFilterName" type="text" placeholder={t('Search')} value={this.state.strSearch} onChange={this.jsSearchTable} />
-                    <button type="button" className="cssButDef" onClick={() => this.jsEditCustomer("0")}>{t('AddNew')}</button>
-                </caption>
-                <thead>
-                <tr>
-                    <th onClick={() => this.jsSortBy("fName")}>{t('Name')} {aIcons[0]}</th>
-                    <th onClick={() => this.jsSortBy("fEmail")}>{t('Email')} {aIcons[1]}</th>
-                    <th onClick={() => this.jsSortBy("fPhone")}>{t('PhoneNumber')} {aIcons[2]}</th>
-                    <th onClick={() => this.jsSortBy("fCountry")}>{t('Country')} {aIcons[3]}</th>
-                </tr>
-                </thead>
-                <tbody>
-                    {aCustomers.map(customer => {
-                        return <tr key={customer.id} onClick={() => this.jsReadCustomer(customer.id)}>
-                            <td>{customer.fName}</td>
-                            <td>{customer.fEmail}</td>
-                            <td>{customer.fPhone}</td>
-                            <td>{customer.fCountry}</td>
-                        </tr>
-                    })}
-                </tbody>
-            </table>
+            <div className="cssPageBody">
+                <table id="idCustomersTable" className="cssTable">
+                    <caption>
+                        {t('Customers')} <span className="cssSmall">({this.state.aCustomers.length})</span>
+                        <input name="fFilterName" type="text" placeholder={t('Search')} value={this.state.strSearch} onChange={this.jsSearchTable} />
+                        <button type="button" className="cssButDef" onClick={() => this.jsEditCustomer("0")}>{t('AddNew')}</button>
+                    </caption>
+                    <thead>
+                    <tr>
+                        <th onClick={() => this.jsSortBy("fName")}>{t('Name')} {aIcons[0]}</th>
+                        <th onClick={() => this.jsSortBy("fEmail")}>{t('Email')} {aIcons[1]}</th>
+                        <th onClick={() => this.jsSortBy("fPhone")}>{t('PhoneNumber')} {aIcons[2]}</th>
+                        <th onClick={() => this.jsSortBy("fCountry")}>{t('Country')} {aIcons[3]}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {aCustomers.map(customer => {
+                            return <tr key={customer.id} onClick={() => this.jsReadCustomer(customer.id)}>
+                                <td>{customer.fName}</td>
+                                <td>{customer.fEmail}</td>
+                                <td>{customer.fPhone}</td>
+                                <td>{customer.fCountry}</td>
+                            </tr>
+                        })}
+                    </tbody>
+                </table>
+            </div>
         </React.Fragment>
     }
 }
