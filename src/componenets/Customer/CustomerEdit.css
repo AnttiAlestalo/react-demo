@@ -1,4 +1,7 @@
-.cssPageHeader, .cssFormButtons {
+.cssPageHeader {
+    width: 636px;
+}
+.cssFormButtons {
     width: 556px;
 }
 .cssPageHeader span {
