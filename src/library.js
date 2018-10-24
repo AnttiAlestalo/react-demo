@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 export function jsAddToArray(aArray, str) {
     let aNewArry = (Array.isArray(aArray) ? aArray : []);
     if (aNewArry.indexOf(str) < 0) {
@@ -35,7 +36,7 @@ export function jsIsEmail(strEmail){
 }
 
 export function jsLeft(str, n){
-    if (str == undefined || n <= 0) {
+    if (str === undefined || n <= 0) {
         return "";
     } else if (n > str.length) {
         return str;
@@ -45,7 +46,7 @@ export function jsLeft(str, n){
 }
 
 export function jsRight(str, n){
-    if (str == undefined || n <= 0) {
+    if (str === undefined || n <= 0) {
         return "";
     } else if (n > str.length) {
         return str;
@@ -56,7 +57,7 @@ export function jsRight(str, n){
 }
 
 export function jsStrLeft(str1, str2){
-    if (str1 == undefined) return "";
+    if (str1 === undefined) return "";
     var i = str1.indexOf(str2);
     if (i <= 0) {
         return "";
@@ -66,7 +67,7 @@ export function jsStrLeft(str1, str2){
 }
 
 export function jsStrRight(str1, str2){
-    if (str1 == undefined) return "";
+    if (str1 === undefined) return "";
     let i = str1.lastIndexOf(str2);
     let iLen = str2.length;
     if (i < 0 || (i+iLen) === str1.length) {

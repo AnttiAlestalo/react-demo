@@ -5,7 +5,7 @@ import $ from "jquery";
 import { withNamespaces } from 'react-i18next';
 
 let jsonDataBar = {
-    labels: ['Finland', 'United States', 'Germany', 'Spain', 'France', 'Poland', 'Italy'],
+    labels: [],
     datasets: [{
         label: 'Customers',
         backgroundColor: 'rgba(255,99,132,0.2)',
@@ -13,24 +13,19 @@ let jsonDataBar = {
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(255,99,132,0.4)',
         hoverBorderColor: 'rgba(255,99,132,1)',
-        data: [65, 59, 80, 81, 56, 55, 40, 0]
+        data: []
     }]
 };
 
 let jsonDataPie = {
-    labels: ['Current', 'Old', 'New'],
+    labels: [],
     datasets: [{
-        data: [],
-        backgroundColor: [
-            '#57b46d',
-            '#FF6384',
-            '#FFCE56'
-        ]
+        backgroundColor: ['#57b46d', '#FF6384', '#FFCE56'],
+        data: []
     }]
 };
 
 class Reports extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -40,6 +35,8 @@ class Reports extends React.Component {
     }
 
     componentDidMount() {
+        const t = this.props.t;
+        const aPieTextLabels = [t('Current'), t('Old'), t('New')];
 
         let strUrl = window.location.href.indexOf("localhost") > 0 ? "http://localhost:3000/customers.json" : "http://www.aad.fi/aad/react1.nsf/vwCustomers?OpenView&" + Date.now();
         $.getJSON(strUrl, function(json) {
@@ -61,9 +58,10 @@ class Reports extends React.Component {
             for (let i = 0; i < json.length; i++) {
                 aBarData[aBarLabels.indexOf(json[i].fCountry)] += 1;
             }
-            jsonDataPie.datasets[0].data = aPieData;
             jsonDataBar.labels = aBarLabels;
             jsonDataBar.datasets[0].data = aBarData;
+            jsonDataPie.labels = aPieTextLabels;
+            jsonDataPie.datasets[0].data = aPieData;
             this.setState({
                 jsonDataBar: jsonDataBar,
                 jsonDataPie: jsonDataPie
