@@ -17,10 +17,11 @@
     position: absolute;
     left: 120px;
     bottom: 0;
-    height: 30px;
+    line-height: 40px;
 }
 .cssTopNav a {
-    padding: 8px 30px;
+    display: inline-block;
+    padding: 0 30px;
     border-right: solid 1px #FFF;
     color: #fff;
     font-size: 16px;
@@ -37,7 +38,6 @@
     background-color: #121f6b;
 }
 #idDropdownSettings {
-    z-index: 1;
     position: absolute;
     right: 20px;
     top: 47px;

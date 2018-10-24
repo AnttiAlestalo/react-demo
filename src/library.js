@@ -51,14 +51,14 @@ export function jsRight(str, n){
     } else if (n > str.length) {
         return str;
     } else {
-        var iLen = String(str).length;
+        let iLen = String(str).length;
         return str.substring(iLen, iLen - n);
     }
 }
 
 export function jsStrLeft(str1, str2){
     if (str1 === undefined) return "";
-    var i = str1.indexOf(str2);
+    let i = str1.indexOf(str2);
     if (i <= 0) {
         return "";
     } else {
@@ -122,10 +122,10 @@ export function jsSort(prop, bNum, bDescending){
 }
 
 export function jsIsDate(strValue) {
-    var iYear, iMonth, iDay;
-    var aMonths = [0,31,29,31,30,31,30,31,31,30,31,30,31];
-    var RegExISO = /^([12]\d\d\d)-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$/;
-    var RegExEU = /^(0?[1-9]|[12][0-9]|3[01]).(0?[1-9]|1[0-2]).([12]\d\d\d)$/;
+    let iYear, iMonth, iDay;
+    let aMonths = [0,31,29,31,30,31,30,31,31,30,31,30,31];
+    let RegExISO = /^([12]\d\d\d)-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$/;
+    let RegExEU = /^(0?[1-9]|[12][0-9]|3[01]).(0?[1-9]|1[0-2]).([12]\d\d\d)$/;
 
     //Check format
     if (strValue.indexOf("-") > 0) {
