@@ -10,7 +10,7 @@ import './popup.css';
 import './index.css';
 import './common.css';
 import './tables.css';
-import AppLayout from './componenets/AppLayout/AppLayout';
+import AppLayout from './components/AppLayout/AppLayout';
 
 i18next.init({
     interpolation: { escapeValue: false },

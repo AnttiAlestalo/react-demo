@@ -1,13 +1,16 @@
 .cssAppLogo {
     height: 70px;
+    width: 70px;
     position: absolute;
-    top: 6px;
-    left: 4px;
+    top: 5px;
+    left: 20px;
+    background-color: #000;
+    border-radius: 50%;
 }
 .cssSiteTitle {
     padding-top: 6px;
     font-size: 24px;
-    color: #fff;
+    color: #1174ba;
     text-align: center;
 }
 .cssTopNav {
@@ -18,7 +21,6 @@
 }
 .cssTopNav a {
     padding: 8px 30px;
-    border-top: solid 1px #FFF;
     border-right: solid 1px #FFF;
     color: #fff;
     font-size: 16px;
@@ -38,8 +40,11 @@
     z-index: 1;
     position: absolute;
     right: 20px;
-    top: 20px;
+    top: 47px;
     text-align: right;
+}
+#idDropdownSettings .fa-cog {
+    font-size: 24px;
 }
 #idDropdownSettings .dropdown__content  {
     text-align: left;

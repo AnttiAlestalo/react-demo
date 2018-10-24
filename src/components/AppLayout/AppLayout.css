@@ -9,6 +9,12 @@ body {
     height: 80px;
     z-index: 1;
 }
+.cssAppHeaderBgTop {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+}
 .cssAppHeader {
     margin: 0 auto;
     min-width: 600px;
@@ -17,25 +23,22 @@ body {
     position: relative;
 }
 .cssAppBody {
-    height: 100%;
+    min-height: 100%;
     min-width: 600px;
     max-width: 1200px;
     margin: 0 auto 0 auto;
-    padding: 80px 0 0 0;
+    padding: 80px 40px 20px 40px;
     background-color: #fff;
 }
 .cssPageHeader {
     font-size: 24px;
-    padding: 10px 40px 10px 40px;
-    background-color: #fff;
+    padding: 10px 0 10px 0;
 }
 .cssPageBody {
-    padding: 0 40px 20px 40px;
-    background-color: #fff;
     font-size: 16px;
 }
 @media only screen and (max-width: 800px) {
-    .cssPageBody {
-        padding: 0 20px 20px 20px;
+    .cssAppBody {
+        padding: 80px 20px 20px 20px;
     }
 }

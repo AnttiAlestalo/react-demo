@@ -8,6 +8,7 @@ class AppLayout extends Component {
         return (
             <React.Fragment>
                 <div className="cssAppHeaderBg">
+                    <div className="cssAppHeaderBgTop"></div>
                     <div className="cssAppHeader">
                         <AppHeader/>
                     </div>
