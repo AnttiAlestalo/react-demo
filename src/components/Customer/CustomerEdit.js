@@ -42,6 +42,7 @@ class CustomerEdit extends React.Component {
 
     componentDidMount() {
         moment.updateLocale('en', { week: { dow:1 } });
+        window.scrollTo(0, 0);
         let strId = jsStrRight(window.location.href, "/");
         if (strId === "0") return;
         let strUrl = "http://www.aad.fi/aad/react1.nsf/vwCustomer/" + strId + "?OpenDocument&" + Date.now();

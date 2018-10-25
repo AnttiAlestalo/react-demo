@@ -20,6 +20,7 @@ class Customers extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         let strUrl = window.location.href.indexOf("localhost") > 0 ? "http://localhost:3000/customers.json" : "http://www.aad.fi/aad/react1.nsf/vwCustomers?OpenView&" + Date.now();
         $.getJSON(strUrl, function(aJson) {
             aJson.pop();

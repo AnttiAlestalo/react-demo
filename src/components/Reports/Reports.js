@@ -35,6 +35,7 @@ class Reports extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         const t = this.props.t;
         let strUrl = window.location.href.indexOf("localhost") > 0 ? "http://localhost:3000/customers.json" : "http://www.aad.fi/aad/react1.nsf/vwCustomers?OpenView&" + Date.now();
         $.getJSON(strUrl, function(json) {

@@ -15,6 +15,7 @@ class CustomerRead extends React.Component {
     componentDidMount() {
         let strId = jsStrRight(window.location.href, "/");
         let strUrl = "http://www.aad.fi/aad/react1.nsf/vwCustomer/" + strId + "?OpenDocument&" + Date.now();
+        window.scrollTo(0, 0);
         $.getJSON(strUrl, function(json) {
             this.setState({
                 jsonCustomer: json
