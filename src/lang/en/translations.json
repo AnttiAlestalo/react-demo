@@ -5,7 +5,9 @@
   "Customer": "Customer",
   "Reports": "Reports",
   "Settings": "Settings",
-  "Status": "Status",
+  "Gender": "Gender",
+  "Male": "Male",
+  "Female": "Female",
   "New": "New",
   "Current": "Current",
   "Old": "Old",
@@ -29,5 +31,5 @@
   "Search": "Search",
   "Name": "Name",
   "CustomersByCountry": "Customers by country",
-  "CustomersByStatus": "Customers by status"
+  "CustomersByGender": "Customers by gender"
 }

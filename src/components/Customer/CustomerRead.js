@@ -46,16 +46,16 @@ class CustomerRead extends React.Component {
                 <div className="cssPageBody">
                     <fieldset id="idFormPerson">
                         <div className="cssFormRow">
-                            <div>{t('Status')}:</div>
-                            <div>{t(jsonCustomer.fStatus)}</div>
-                        </div>
-                        <div className="cssFormRow">
                             <div>{t('FirstName')}:</div>
                             <div>{jsonCustomer.fFirstName}</div>
                         </div>
                         <div className="cssFormRow">
                             <div>{t('LastName')}:</div>
                             <div>{jsonCustomer.fLastName}</div>
+                        </div>
+                        <div className="cssFormRow">
+                            <div>{t('Gender')}:</div>
+                            <div>{t(jsonCustomer.fGender)}</div>
                         </div>
                         <div className="cssFormRow">
                             <div>{t('Company')}:</div>

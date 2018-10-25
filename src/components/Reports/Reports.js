@@ -20,7 +20,7 @@ let jsonDataBar = {
 let jsonDataPie = {
     labels: [],
     datasets: [{
-        backgroundColor: ['#57b46d', '#FF6384', '#FFCE56'],
+        backgroundColor: ['#57b46d', '#FF6384'],
         data: []
     }]
 };
@@ -36,16 +36,14 @@ class Reports extends React.Component {
 
     componentDidMount() {
         const t = this.props.t;
-        const aPieTextLabels = [t('Current'), t('Old'), t('New')];
-
         let strUrl = window.location.href.indexOf("localhost") > 0 ? "http://localhost:3000/customers.json" : "http://www.aad.fi/aad/react1.nsf/vwCustomers?OpenView&" + Date.now();
         $.getJSON(strUrl, function(json) {
             json.pop();
             let aBarLabels = [];
-            let aPieLabels = ['Current', 'Old', 'New'];
-            let aPieData = [0, 0, 0];
+            let aPieLabels = ['Male', 'Female'];
+            let aPieData = [0, 0];
             for (let i = 0; i < json.length; i++) {
-                aPieData[aPieLabels.indexOf(json[i].fStatus)] += 1;
+                aPieData[aPieLabels.indexOf(json[i].fGender)] += 1;
                 if (aBarLabels.indexOf(json[i].fCountry) < 0) {
                     aBarLabels.push(json[i].fCountry)
                 }
@@ -60,7 +58,7 @@ class Reports extends React.Component {
             }
             jsonDataBar.labels = aBarLabels;
             jsonDataBar.datasets[0].data = aBarData;
-            jsonDataPie.labels = aPieTextLabels;
+            jsonDataPie.labels = [t('Male') + ": " + aPieData[0], t('Female') + ": " + aPieData[1]];
             jsonDataPie.datasets[0].data = aPieData;
             this.setState({
                 jsonDataBar: jsonDataBar,
@@ -96,7 +94,7 @@ class Reports extends React.Component {
                     />
                 </div>
                 <br/><br/><br/>
-                <div className="cssPageHeader">{t('CustomersByStatus')}</div>
+                <div className="cssPageHeader">{t('CustomersByGender')}</div>
                 <div className="cssPieContainer">
                     <Pie data={this.state.jsonDataPie} />
                 </div>

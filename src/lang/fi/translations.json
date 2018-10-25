@@ -5,7 +5,9 @@
   "Customer": "Asiakas",
   "Reports": "Reportit",
   "Settings": "Asetukset",
-  "Status": "Tila",
+  "Gender": "Sukupuoli",
+  "Male": "Mies",
+  "Female": "Nainen",
   "New": "Uusi",
   "Current": "Nykyinen",
   "Old": "Vanha",
@@ -29,5 +31,5 @@
   "Search": "Etsi",
   "Name": "Nimi",
   "CustomersByCountry": "Asiakkaat maittain",
-  "CustomersByStatus": "Asiakaiden tilat"
+  "CustomersByGender": "Sukupuolen mukaan"
 }

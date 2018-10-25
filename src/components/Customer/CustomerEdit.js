@@ -23,7 +23,7 @@ class CustomerEdit extends React.Component {
             jsonSelectedCountry: null,
             jsonCustomer: {
                 "id":"0",
-                "fStatus": "",
+                "fGender": "",
                 "fFirstName":"",
                 "fLastName":"",
                 "fCompany": "",
@@ -95,7 +95,7 @@ class CustomerEdit extends React.Component {
     jsValidateCustomer = () => {
         let aInvalidFields = [];
         let jsonCustomer = this.state.jsonCustomer;
-        if (lib.jsTrim(jsonCustomer.fStatus) === "") aInvalidFields.push("fStatus");
+        if (lib.jsTrim(jsonCustomer.fGender) === "") aInvalidFields.push("fGender");
         if (lib.jsTrim(jsonCustomer.fFirstName) === "") aInvalidFields.push("fFirstName");
         if (lib.jsTrim(jsonCustomer.fLastName) === "") aInvalidFields.push("fLastName");
         if (!lib.jsIsEmail(jsonCustomer.fEmail)) aInvalidFields.push("fEmail");
@@ -104,7 +104,7 @@ class CustomerEdit extends React.Component {
                 aInvalidFields: aInvalidFields
             });
             let strErrorMsg = "";
-            if (aInvalidFields.indexOf("fStatus") > -1 || aInvalidFields.indexOf("fName") > -1 || jsonCustomer.fEmail === "" || aInvalidFields.indexOf("fPhone") > -1) {
+            if (aInvalidFields.indexOf("fGender") > -1 || aInvalidFields.indexOf("fName") > -1 || jsonCustomer.fEmail === "" || aInvalidFields.indexOf("fPhone") > -1) {
                 strErrorMsg = "Please fill required fields.";
             }
             if (aInvalidFields.indexOf("fEmail") > -1) {
@@ -180,24 +180,18 @@ class CustomerEdit extends React.Component {
                 <div className="cssPageBody">
                     <fieldset>
                         <form className="cssForm" id="idFormPerson">
-                            <div className="cssFormRow">
-                                <div>{t('Status')}: <i className="cssRequired"> </i></div>
-                                <div onChange={event => this.jsInputChange(event)} className={"cssDivRadio" + (lib.jsInArray(aInvalidFields, "fStatus") ? " cssInvalid" : "")}>
-                                    <label><input type="radio" value="New" name="fStatus" checked={this.state.jsonCustomer.fStatus === "New"} />{t('New')}</label>
-                                    <label><input type="radio" value="Current" name="fStatus" checked={this.state.jsonCustomer.fStatus === "Current"} />{t('Current')}</label>
-                                    <label><input type="radio" value="Old" name="fStatus" checked={this.state.jsonCustomer.fStatus === "Old"} />{t('Old')}</label>
-                                </div>
-                            </div>
+
                             <div className="cssFormRow">
                                 <div>{t('FirstName')}: <i className="cssRequired"> </i></div>
                                 <div>
-                                    <input name="fFirstName" type="text"
+                                    <input autoFocus name="fFirstName" type="text"
                                            value={jsonCustomer.fFirstName}
                                            onChange={this.jsInputChange}
                                            className={(lib.jsInArray(aInvalidFields, "fFirstName") ? "cssInvalid" : "")}
                                     />
                                 </div>
                             </div>
+
                             <div className="cssFormRow">
                                 <div>{t('LastName')}: <i className="cssRequired"> </i></div>
                                 <div>
@@ -208,30 +202,43 @@ class CustomerEdit extends React.Component {
                                     />
                                 </div>
                             </div>
+
+                            <div className="cssFormRow">
+                                <div>{t('Gender')}: <i className="cssRequired"> </i></div>
+                                <div onChange={event => this.jsInputChange(event)} className={"cssDivRadio" + (lib.jsInArray(aInvalidFields, "fGender") ? " cssInvalid" : "")}>
+                                    <label><input type="radio" value="Male" name="fGender" checked={this.state.jsonCustomer.fGender === "Male"} />{t('Male')}</label>
+                                    <label><input type="radio" value="Female" name="fGender" checked={this.state.jsonCustomer.fGender === "Female"} />{t('Female')}</label>
+                                </div>
+                            </div>
+
                             <div className="cssFormRow">
                                 <div>{t('Company')}:</div>
                                 <div>
                                     <input name="fCompany" type="text" value={jsonCustomer.fCompany} onChange={this.jsInputChange} />
                                 </div>
                             </div>
+
                             <div className="cssFormRow">
                                 <div>{t('StreetAddress')}:</div>
                                 <div>
                                     <input name="fStreetAddress" type="text" value={jsonCustomer.fStreetAddress} onChange={this.jsInputChange} />
                                 </div>
                             </div>
+
                             <div className="cssFormRow">
                                 <div>{t('PostCode')}:</div>
                                 <div>
                                     <input name="fPostCode" type="text" value={jsonCustomer.fPostCode} onChange={this.jsInputChange} />
                                 </div>
                             </div>
+
                             <div className="cssFormRow">
                                 <div>{t('City')}:</div>
                                 <div>
                                     <input name="fCity" type="text" value={jsonCustomer.fCity} onChange={this.jsInputChange} />
                                 </div>
                             </div>
+
                             <div className="cssFormRow">
                                 <div>{t('Country')}:</div>
                                 <div>
@@ -247,6 +254,7 @@ class CustomerEdit extends React.Component {
                                     />
                                 </div>
                             </div>
+
                             <div className="cssFormRow">
                                 <div>{t('Email')}: <i className="cssRequired"> </i></div>
                                 <div>
@@ -257,6 +265,7 @@ class CustomerEdit extends React.Component {
                                     />
                                 </div>
                             </div>
+
                             <div className="cssFormRow">
                                 <div>{t('PhoneNumber')}:</div>
                                 <div>
@@ -276,6 +285,7 @@ class CustomerEdit extends React.Component {
                                     />
                                 </div>
                             </div>
+
                             <div className="cssFormRow">
                                 <div>{t('CustomerId')}:</div>
                                 <div>
@@ -286,12 +296,14 @@ class CustomerEdit extends React.Component {
                                     />
                                 </div>
                             </div>
+
                             <div className="cssFormRow">
                                 <div>{t('AdditionalInfo')}:</div>
                                 <div>
                                     <textarea  name="fAddInfo" value={jsonCustomer.fAddInfo} onChange={this.jsInputChange} />
                                 </div>
                             </div>
+
                         </form>
                     </fieldset>
                     <div className="cssFormButtons">
