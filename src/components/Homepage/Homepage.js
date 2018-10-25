@@ -78,6 +78,6 @@ class Homepage extends React.Component {
         </React.Fragment>
     }
 
-};
+}
 
 export default Homepage

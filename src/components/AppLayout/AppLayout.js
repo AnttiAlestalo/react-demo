@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './AppLayout.css';
 import AppHeader from '../AppHeader/AppHeader';
 import AppBody from "../AppBody/AppBody";
