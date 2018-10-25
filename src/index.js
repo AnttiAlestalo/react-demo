@@ -6,10 +6,10 @@ import en from "./lang/en/translations.json";
 import fi from "./lang/fi/translations.json";
 import { BrowserRouter } from 'react-router-dom'
 import Popup from 'react-popup';
-import './popup.css';
-import './index.css';
-import './common.css';
-import './tables.css';
+import './css/popup.css';
+import './css/index.css';
+import './css/common.css';
+import './css/tables.css';
 import AppLayout from './components/AppLayout/AppLayout';
 
 i18next.init({

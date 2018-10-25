@@ -3,7 +3,7 @@ import { withNamespaces } from 'react-i18next';
 import $ from 'jquery';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltDown, faLongArrowAltUp} from '@fortawesome/free-solid-svg-icons';
-import * as lib from "../../library";
+import * as lib from "../../js/library";
 import './Customers.css';
 
 class Customers extends React.Component {

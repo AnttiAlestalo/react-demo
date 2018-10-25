@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import { withNamespaces } from 'react-i18next';
 import './CustomerEdit.css';
-import {jsStrRight} from "../../library";
+import {jsStrRight} from "../../js/library";
 
 class CustomerRead extends React.Component {
     constructor(props) {
