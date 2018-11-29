@@ -301,7 +301,7 @@ class CustomerEdit extends React.Component {
                             <div className="cssFormRow">
                                 <div>{t('AdditionalInfo')}:</div>
                                 <div>
-                                    <textarea  name="fAddInfo" value={jsonCustomer.fAddInfo} onChange={this.jsInputChange} />
+                                    <textarea name="fAddInfo" value={jsonCustomer.fAddInfo} onChange={this.jsInputChange} />
                                 </div>
                             </div>
 
