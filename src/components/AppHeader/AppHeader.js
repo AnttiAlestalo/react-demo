@@ -12,7 +12,7 @@ function AppHeader(props) {
     const { i18n } = props;
 
     return <React.Fragment>
-        <img src={logo} className="cssAppLogo" alt="logo" />
+        <img src={logo} className="cssAppLogo" alt="React" />
         <div className="cssSiteTitle">{t('SiteTitle')}</div>
 
         <div className="cssTopNav">
